@@ -1,0 +1,9 @@
+# Ignore all uploaded files.
+*.txt
+
+# Ignore JSON files
+*.json
+
+# IPython Notebook checkpoints
+.ipynb_checkpoints
+*.ipynb
