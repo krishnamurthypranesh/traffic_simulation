@@ -48,6 +48,7 @@ class Model:
         except ValueError:
             pass
         except IndexError:
+            # This exception occurs when the object is at the end of the list
             self.road[index] = ' '
 
 
@@ -56,14 +57,14 @@ class Model:
         return self.road
 
 # create 'n' random vehicals with random speeds (min->1, max->5)
-vehicals = [Vehical(random.randrange(1, 5), ''.join(random.sample("qwaszxedcrfvtgbyhnujkimlop", 5))) for _ in range(100)]
+vehicals = [Vehical(random.randrange(1, 5), ''.join(random.sample("qwaszxedcrfvtgbyhnujkimlop", 5))) for _ in range(5)]
 
 # create a road of length 1000
-road = Model(10)
+road = Model(20)
 
 # iterate for a 1000 cycles
 for _ in range(10):
-    print(road.get_model())
     for vehical in vehicals:
         road.generate_road(vehical)
+        print(road.get_model())
         road.set_position()
