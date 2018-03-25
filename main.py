@@ -1,4 +1,4 @@
-""" A traffic sumulation model based on the Nagel–Schreckenberg cellular automation where """
+""" A traffic sumulation model based on the Nagel–Schreckenberg cellular automation """
 
 import random
 
@@ -24,9 +24,9 @@ class Model:
     def generate_road(self, vehical):
         """ Generates a road with vehicals with a minimum of 1 cell space """
         self.vehical = vehical
-        if self.road[:1] == [" "]:
+        if self.road[0] == " ":
+            """ drop a vehical in the array only if a[0] is empty """
             self.road[0] = vehical.id
-        #print(self.road)
 
     def set_position(self):
         """ Edits the position of the vehical based on the speed of the vehical """
@@ -36,18 +36,18 @@ class Model:
             if self.road[index+1] != " ":
                 """ If the cell ahed of the vehical is not empty"""
                 print('here 1')
+                print('## id:', self.vehical.id, 'speed:', self.vehical.speed, 'distance:', distance, 'index:', index, end='')
                 self.vehical.set_speed(self.vehical.speed-1)
-            # elif self.road[index+1] != " ":
-            #     """ if the neighbouring cell is not empty """
+                print(' new_speed',self.vehical.speed)
             if self.road[index+distance+1] != " ":
                 """ if the cell the vehical will appear next is not empty """
-                # self.vehical.set_speed(-1)
                 print('here 2')
-                print('id:', self.vehical.id, 'speed:', self.vehical.speed, 'distance:', distance, 'index:', index, end='')
+                print('## id:', self.vehical.id, 'speed:', self.vehical.speed, 'distance:', distance, 'index:', index, end='')
                 self.vehical.set_speed(distance-index-1)
                 print(' new_speed',self.vehical.speed)
             distance = self.vehical.speed
             index += distance + 1
+            print('## id:', self.vehical.id, 'speed:', self.vehical.speed, 'distance:', distance, 'index:', index)
             self.road.remove(self.vehical.id)
             self.road.insert(index, self.vehical.id)
         except ValueError:
