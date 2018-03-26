@@ -1,2 +1,2 @@
 # traffic_simulation
-A random traffic sumulation thing
+A random traffic simulation thing

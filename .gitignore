@@ -1,6 +1,9 @@
 # Ignore all uploaded files.
 *.txt
 
+# ignore test scriot
+rework.py
+
 # Ignore JSON files
 *.json
 
